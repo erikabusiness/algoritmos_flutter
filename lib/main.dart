@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        // Aplique a nova font como a fonte principal do tema
         textTheme: const TextTheme(
           bodyLarge: TextStyle(fontFamily: 'Montserrat'),
         ),
