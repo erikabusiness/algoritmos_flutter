@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,11 +54,19 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Contagem de cliques no botão:',
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  //atribui as definições de estilo ao contador, os quais não foram modificados ultiliza as configurações do tema
+                  fontFamily: GoogleFonts.bebasNeue()
+                      .fontFamily, //fonte do numero do contador
+                  fontSize: 80.0, //tamanho da fonte do numero do contador
+                  color: Color.fromARGB(
+                      255, 133, 47, 148), //cor da fonte do número do contador
+                  fontWeight: FontWeight.bold // fonte em negrito
+                  ),
             ),
           ],
         ),
