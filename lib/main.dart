@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontFamily: GoogleFonts.bebasNeue()
                       .fontFamily, //fonte do numero do contador
                   fontSize: 80.0, //tamanho da fonte do numero do contador
-                  color: Color.fromARGB(
+                  color: const Color.fromARGB(
                       255, 133, 47, 148), //cor da fonte do número do contador
                   fontWeight: FontWeight.bold // fonte em negrito
                   ),
