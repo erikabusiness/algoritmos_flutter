@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Contagem de cliques no botão:',
             ),
             Text(
               '$_counter',
