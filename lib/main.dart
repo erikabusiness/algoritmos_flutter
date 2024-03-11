@@ -13,10 +13,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(fontFamily: 'Montserrat'),
+        textTheme: GoogleFonts.montserratTextTheme(
+          // Define o tema de texto
+          Theme.of(context).textTheme.copyWith(
+                // Copia estilos padrão
+                bodyLarge: const TextStyle(
+                  // Estilo para bodyText1
+                  fontSize: 16.0,
+                  color: Colors.black,
+                ),
+                bodyMedium: const TextStyle(
+                  // Estilo para bodyText2
+                  fontSize: 14.0,
+                  color: Colors.grey,
+                ),
+                titleLarge: const TextStyle(
+                  // Estilo para headline6 (títulos)
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
         ),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
