@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           inversePrimary: Colors.amber),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'DartVaders'),
     );
   }
 }
@@ -104,15 +105,21 @@ class _MyHomePageState extends State<MyHomePage> {
           //
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.          
-          mainAxisAlignment: MainAxisAlignment.center,
+          // wireframe for each widget.
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Contagem de cliques no botão:',
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  //atribui as definições de estilo ao contador, os quais não foram modificados ultiliza as configurações do tema
+                  fontFamily: GoogleFonts.bebasNeue().fontFamily, //fonte do numero do contador
+                  fontSize: 80.0, //tamanho da fonte do numero do contador 
+                  color: Color.fromARGB(255, 133, 47, 148), //cor da fonte do número do contador
+                  fontWeight: FontWeight.bold // fonte em negrito
+                ),
             ),
           ],
         ),
