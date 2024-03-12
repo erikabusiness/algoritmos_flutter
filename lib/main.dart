@@ -29,8 +29,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          inversePrimary: Colors.amber),
+            seedColor: Colors.blue, inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
           // Define o tema de texto
@@ -38,17 +37,17 @@ class MyApp extends StatelessWidget {
                 // Copia estilos padrão
                 bodyLarge: const TextStyle(
                   // Estilo para bodyText1
-                  fontSize: 16.0,
+                  fontSize: 20.0,
                   color: Colors.black,
                 ),
                 bodyMedium: const TextStyle(
                   // Estilo para bodyText2
-                  fontSize: 14.0,
-                  color: Colors.grey,
+                  fontSize: 16.0,
+                  color: Colors.deepPurple,
                 ),
                 titleLarge: const TextStyle(
                   // Estilo para headline6 (títulos)
-                  fontSize: 20.0,
+                  fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -81,13 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.deepPurple,
         title: Text(widget.title),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Row(
+        child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -101,10 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Contagem de cliques no botão:',
+              'Resultado: ',
             ),
             Text(
               '$_counter',
@@ -113,8 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontFamily: GoogleFonts.bebasNeue()
                       .fontFamily, //fonte do numero do contador
                   fontSize: 80.0, //tamanho da fonte do numero do contador
-                  color: const Color.fromARGB(
-                      255, 133, 47, 148), //cor da fonte do número do contador
+                  color: Colors.deepPurple, //cor da fonte do número do contador
                   fontWeight: FontWeight.bold // fonte em negrito
                   ),
             ),
