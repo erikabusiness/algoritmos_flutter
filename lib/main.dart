@@ -13,31 +13,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
           inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
-          // Define o tema de texto
           Theme.of(context).textTheme.copyWith(
-                // Copia estilos padrão
                 bodyLarge: const TextStyle(
-                  // Estilo para bodyText1
                   fontSize: 16.0,
                   color: Colors.black,
                 ),
@@ -47,7 +29,6 @@ class MyApp extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 titleLarge: const TextStyle(
-                  // Estilo para headline6 (títulos)
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -69,11 +50,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
+
+  int counter = 0;
+  String _textoResultado = "";
+  String resultadoFinal = "";
+  bool mostrarResultado = false;
+
+
+  void _desafioSelecionado(int valor) {
     setState(() {
-      _counter++;
+      counter = valor;
+      mostrarResultado = false;
+      switch (counter) {
+        default:
+          _textoResultado = "Nenhum desafio selecionado.";
+          resultadoFinal = "";
+      }
     });
   }
 
@@ -81,51 +74,63 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.deepPurple,
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Row(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            const Text(
-              'Contagem de cliques no botão:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  //atribui as definições de estilo ao contador, os quais não foram modificados ultiliza as configurações do tema
-                  fontFamily: GoogleFonts.bebasNeue()
-                      .fontFamily, //fonte do numero do contador
-                  fontSize: 80.0, //tamanho da fonte do numero do contador
-                  color: const Color.fromARGB(
-                      255, 133, 47, 148), //cor da fonte do número do contador
-                  fontWeight: FontWeight.bold // fonte em negrito
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              DropdownButton<int>(
+                value: counter,
+                onChanged: (int? valor) {
+                  if (valor != null) {
+                    _desafioSelecionado(valor);
+                  }
+                },
+                items: const <DropdownMenuItem<int>>[
+                  DropdownMenuItem<int>(
+                    value: 0,
+                    child: Text('Nenhum desafio selecionado'),
                   ),
-            ),
-          ],
+                ],
+              ),
+              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    mostrarResultado = true; //
+                  });
+                },
+                child: const Text('Mostrar Resultado'),
+              ),
+              Visibility(
+                visible: mostrarResultado,
+                child: Column(
+                  children: [
+                    Text(
+                      _textoResultado,
+                      style: const TextStyle(
+                        fontSize: 28,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    Text(
+                      resultadoFinal,
+                      style: const TextStyle(
+                        fontSize: 36,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.favorite),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
