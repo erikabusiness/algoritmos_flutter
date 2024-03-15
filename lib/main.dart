@@ -57,12 +57,27 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio03() {
+    int numeroInicial = 7;
+    int resultado = 1;
+
+    for(int i = 1; i <= numeroInicial; i++) {
+      resultado *= i;
+    }
+
+    _textoResultado = "o fatorial do numero $numeroInicial é: ";
+    resultadoFinal = "$resultado";
+  }
+
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 3:
+          desafio03();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -95,9 +110,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
                   ),
+                  DropdownMenuItem<int>(
+                    value: 3,
+                    child: Text('Desafio 3'),
+                  ),
                 ],
               ),
-              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
