@@ -52,10 +52,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
 
-  int counter = 0;
+  int counter = 8;
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
+
+  void desafio08(){
+    List<int> numeros = [5,2,8];
+    numeros.sort();
+    _textoResultado = 'A ordem decrescente é : ';
+    resultadoFinal = numeros.reversed.toString();
+  }
 
 
   void _desafioSelecionado(int valor) {
@@ -63,6 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+
+        case 8:{
+          desafio08();
+          break;
+        }
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -94,6 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                   DropdownMenuItem<int>(
+                    value: 8,
+                    child: Text('Desafio 8'),
                   ),
                 ],
               ),
