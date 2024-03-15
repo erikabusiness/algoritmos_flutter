@@ -57,12 +57,29 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio12() {
+    List<int> listaInicial = [2, 4, 8];
+    List<int> listaFinal = [];
+
+    for(int i = 0; i < listaInicial.length; i++) {
+      int numeroQuadrado = listaInicial[i] * listaInicial[i];
+      listaFinal.add(numeroQuadrado);
+    }
+
+    _textoResultado = "O resultado do quadrado dos numeros $listaInicial é: ";
+    resultadoFinal = "$listaFinal";
+
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+
+        case 12:
+          desafio12();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -94,6 +111,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 12,
+                    child: Text('desafio 12'),
                   ),
                 ],
               ),
