@@ -57,12 +57,22 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio08(){
+    List<int> numeros = [5,2,8];
+    numeros.sort();
+    _textoResultado = 'A ordem decrescente é : ';
+    resultadoFinal = numeros.reversed.toString();
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 8:{
+          desafio08();
+          break;
+        }
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -94,6 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 8,
+                    child: Text('Desafio 8'),
                   ),
                 ],
               ),
