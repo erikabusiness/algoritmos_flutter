@@ -55,7 +55,35 @@ class _MyHomePageState extends State<MyHomePage> {
   bool mostrarResultado = false;
 
   void desafio04() {
-    //inserir aqui o algoritmo do desafio 4
+    int num = -9;
+
+    if (num > 0) {
+      if (num % 2 == 0) {
+        (
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e par"
+        );
+      } else {
+        (
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e ímpar"
+        );
+      }
+    } else {
+      if (num < 0) {
+        if (num % 2 == 0) {
+          (
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e par"
+          );
+        } else {
+          (
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e ímpar"
+          );
+        }
+      }
+    }
   }
 
   void _desafioSelecionado(int valor) {
