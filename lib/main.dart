@@ -54,26 +54,27 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
-  void desafio05() {
-    List<int> valores = [11, 11];
-    int soma = valores[0] + valores[1];
-    int mult = valores[0] * valores[1];
-
-    (valores[0] == valores[1])
-        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
-        : (
-            _textoResultado = 'A Multiplicação dos valores é: ',
-            resultadoFinal = '$mult'
-          );
+  void desafio16() {
+  bool ehPalindromo(String palavra) {
+    palavra = palavra.toLowerCase();
+    return palavra == palavra.split('').reversed.join('');
   }
+
+  String palavra = "Arara";
+  if (ehPalindromo(palavra)) {
+    (_textoResultado = 'A palavra "$palavra"' , resultadoFinal= 'é um palíndromo!');
+  } else {
+    (_textoResultado = 'A palavra "$palavra"' , resultadoFinal= ' não é um palíndromo!');
+  }
+}
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 5:
-          desafio05();
+        case 16:
+          desafio16();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -108,8 +109,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
-                    value: 5,
-                    child: Text('Desafio 05'),
+                    value: 16,
+                    child: Text('Desafio 16'),
                   ),
                 ],
               ),
