@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          inversePrimary: Colors.amber),
+            seedColor: Colors.blue, inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme.copyWith(
@@ -50,19 +49,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   int counter = 0;
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio18() {
+    String palavra = "eu";
+    String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
+
+    String palavraMinusc = palavra.toLowerCase();
+    String fraseMinusc = frase.toLowerCase();
+
+    List<String> palavrasDaFrase = fraseMinusc.split(' ');
+
+    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
+
+    print("Resultado: $contagem");
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 18:
+          desafio18();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -92,12 +105,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 items: const <DropdownMenuItem<int>>[
                   DropdownMenuItem<int>(
-                    value: 0,
-                    child: Text('Nenhum desafio selecionado'),
+                    value: 18,
+                    child: Text('Desafio 18'),
                   ),
                 ],
               ),
-              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              const SizedBox(
+                  height: 20), // Espaçamento entre o DropdownButton e o botão
               ElevatedButton(
                 onPressed: () {
                   setState(() {
