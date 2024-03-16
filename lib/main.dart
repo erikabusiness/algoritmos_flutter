@@ -75,17 +75,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
     String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
 
-    _textoResultado = palavra;
+    _textoResultado = '$palavra:';
     resultadoFinal = (palavraMaiscSemAcento == palavraInvertida)
         ? 'É um palíndromo'
         : 'Não é um palíndromo';
   }
+
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 16:
+          _desafio16();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -117,6 +121,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 16,
+                    child: Text('Desafio 16'),
                   ),
                 ],
               ),
