@@ -56,7 +56,17 @@ class _MyHomePageState extends State<MyHomePage> {
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
-
+ 
+  void _desafio7() {
+    const int salarioMinimo = 1412;
+    int salarioUsuario = 2824;
+    double contagemSalarios = salarioUsuario / salarioMinimo;
+    String salarioArredondado = contagemSalarios.toStringAsFixed(1);
+    
+    _textoResultado = 'Seu salário equivale a: ';
+    resultadoFinal =  contagemSalarios > 1 ? '$salarioArredondado salarios mínimos' : '$salarioArredondado salário mínimo';
+   
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
