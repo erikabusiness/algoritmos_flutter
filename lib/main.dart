@@ -61,9 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     while (contador <= 10) {
       //Mudança do resultado das operações. "linha abaixo"
-      resultado = numero + contador;
+      resultado = numero * contador;
       _textoResultado = 'Tabuada do $numero';
-      resultadoFinal += '$numero + $contador = $resultado \n';
+      resultadoFinal += '$numero x $contador = $resultado \n';
       contador = contador + 1;
     }
   }
