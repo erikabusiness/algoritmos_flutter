@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          inversePrimary: Colors.amber),
+            seedColor: Colors.blue, inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme.copyWith(
@@ -50,19 +49,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   int counter = 0;
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio13() {
+    //inserir aqui algoritmo do desafio 13
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 13:
+          desafio13();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -95,9 +98,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
                   ),
+                  DropdownMenuItem<int>(
+                    value: 13,
+                    child: Text('Desafio 13'),
+                  ),
                 ],
               ),
-              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              const SizedBox(
+                  height: 20), // Espaçamento entre o DropdownButton e o botão
               ElevatedButton(
                 onPressed: () {
                   setState(() {
