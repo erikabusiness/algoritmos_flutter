@@ -54,19 +54,26 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
-  //desafio 18
-  void desafio18() {
-    String palavra = "eu";
-    String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
+  void desafio9() {
+    List<double> notasDoAluno = [7.5, 8.0, 6.5, 9.0, 7.0];
 
-    String palavraMinusc = palavra.toLowerCase();
-    String fraseMinusc = frase.toLowerCase();
+    verificaAprovacao(notasDoAluno);
+  }
 
-    List<String> palavrasDaFrase = fraseMinusc.split(' ');
+  void verificaAprovacao(List<double> notas) {
+    double somaDasNotas = 0;
 
-    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
+    for (double nota in notas) {
+      somaDasNotas += nota;
+    }
 
-    print("Resultado: $contagem");
+    double media = somaDasNotas / notas.length;
+
+    if (media >= 7) {
+      print("Média do aluno: $media. Aluno APROVADO!");
+    } else {
+      print("Média do aluno: $media. Aluno REPROVADO!");
+    }
   }
 
   void _desafioSelecionado(int valor) {
@@ -74,8 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 18:
-          desafio18();
+        case 9:
+          desafio9();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -106,8 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 items: const <DropdownMenuItem<int>>[
                   DropdownMenuItem<int>(
-                    value: 18,
-                    child: Text('Desafio 18'),
+                    value: 9,
+                    child: Text('Desafio 9'),
                   ),
                 ],
               ),
