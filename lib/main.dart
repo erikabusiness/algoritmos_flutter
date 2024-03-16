@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          inversePrimary: Colors.amber),
+            seedColor: Colors.blue, inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme.copyWith(
@@ -50,13 +49,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   int counter = 0;
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void _desafio16() {
+    String removerAcentosEspeciais(String palavraPalindromo) {
+      return palavraPalindromo
+          .replaceAll(RegExp(r'[áàâãä]'), 'a')
+          .replaceAll(RegExp(r'[éèêë]'), 'e')
+          .replaceAll(RegExp(r'[íìîï]'), 'i')
+          .replaceAll(RegExp(r'[óòôõö]'), 'o')
+          .replaceAll(RegExp(r'[úùûü]'), 'u')
+          .replaceAll(RegExp(r'[ç]'), 'c')
+          .replaceAll(RegExp(r'[0-9]'), '')
+          .replaceAll(RegExp(r'[^a-zA-Z\s]'), '')
+          .replaceAll(RegExp(r'\b\s+\b'), '');
+    }
+
+    String palavra = 'Aí, Lima falou: “Olá, família!”';
+
+    String palavraMaiscula = palavra.toLowerCase();
+    String palavraMaiscSemAcento = removerAcentosEspeciais(palavraMaiscula);
+
+    String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
+
+    _textoResultado = palavra;
+    resultadoFinal = (palavraMaiscSemAcento == palavraInvertida)
+        ? 'É um palíndromo'
+        : 'Não é um palíndromo';
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
@@ -97,7 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              const SizedBox(
+                  height: 20), // Espaçamento entre o DropdownButton e o botão
               ElevatedButton(
                 onPressed: () {
                   setState(() {
