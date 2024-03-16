@@ -58,8 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool mostrarResultado = false;
  
   void _desafio7() {
-    const int salarioMinimo = 1412;
-    int salarioUsuario = 5000;
+    const double salarioMinimo = 1412.00;
+    double salarioUsuario = 4000.00;
     double contagemSalarios = salarioUsuario / salarioMinimo;
     String salarioArredondado = contagemSalarios.toStringAsFixed(1);
     
