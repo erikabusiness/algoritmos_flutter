@@ -59,20 +59,23 @@ class _MyHomePageState extends State<MyHomePage> {
  
   void _desafio7() {
     const int salarioMinimo = 1412;
-    int salarioUsuario = 2824;
+    int salarioUsuario = 5000;
     double contagemSalarios = salarioUsuario / salarioMinimo;
     String salarioArredondado = contagemSalarios.toStringAsFixed(1);
     
     _textoResultado = 'Seu salário equivale a: ';
-    resultadoFinal =  contagemSalarios > 1 ? '$salarioArredondado salarios mínimos' : '$salarioArredondado salário mínimo';
+    resultadoFinal =  contagemSalarios > 1 ? '$salarioArredondado salários mínimos' : '$salarioArredondado salário mínimo';
    
   }
-
+  
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 7:
+          _desafio7();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -104,6 +107,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 7,
+                    child: Text('Desafio 7'),
                   ),
                 ],
               ),
