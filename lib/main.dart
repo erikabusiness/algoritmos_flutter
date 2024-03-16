@@ -55,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool mostrarResultado = false;
 
   void _desafio16() {
-    String removerAcentosEspeciais(String palavraPalindromo) {
-      return palavraPalindromo
+    String removerCaracteresEspeciais(String palavraLimpa) {
+      return palavraLimpa
           .replaceAll(RegExp(r'[áàâãä]'), 'a')
           .replaceAll(RegExp(r'[éèêë]'), 'e')
           .replaceAll(RegExp(r'[íìîï]'), 'i')
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String palavra = 'Aí, Lima falou: “Olá, família!”';
 
     String palavraMaiscula = palavra.toLowerCase();
-    String palavraMaiscSemAcento = removerAcentosEspeciais(palavraMaiscula);
+    String palavraMaiscSemAcento = removerCaracteresEspeciais(palavraMaiscula);
 
     String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
 
