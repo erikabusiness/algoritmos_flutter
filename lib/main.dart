@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          inversePrimary: Colors.amber),
+            seedColor: Colors.blue, inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme.copyWith(
@@ -50,19 +49,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   int counter = 0;
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio2() {
+    //Inicializando os valores de a,b,c.
+    int numeroA = 5;
+    int numeroB = 8;
+    int numeroC = 2;
+
+    int soma = numeroA + numeroB;
+    _textoResultado = 'a soma de A+B é: $soma';
+
+    if (soma > numeroC) {
+      resultadoFinal = 'A soma é maior do que C.';
+    } else if (soma < numeroC) {
+      resultadoFinal = 'A soma é menor do que C.';
+    } else {
+      resultadoFinal = 'A soma é igual a C.';
+    }
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 2:
+          desafio2();
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -95,9 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
                   ),
+                  DropdownMenuItem<int>(
+                    value: 2,
+                    child: Text('Desafio 2'),
+                  ),
                 ],
               ),
-              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              const SizedBox(
+                  height: 20), // Espaçamento entre o DropdownButton e o botão
               ElevatedButton(
                 onPressed: () {
                   setState(() {
