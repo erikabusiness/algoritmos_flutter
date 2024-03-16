@@ -55,7 +55,23 @@ class _MyHomePageState extends State<MyHomePage> {
   bool mostrarResultado = false;
 
   void desafio13() {
-    //inserir aqui algoritmo do desafio 13
+    //inicializa uma lista com 10 numeros inteiros
+    List<int> numberList = [3, 54, 15, 7, 73, 10, 42, 2, 9, 13];
+    //variaveis para contagem de numeros pares e impares
+    int isEven = 0;
+    int isOdd = 0;
+
+    for (int i = 0; i < numberList.length; i++) {
+      if (numberList[i] % 2 == 0) {
+        isEven++;
+      } else {
+        isOdd++;
+      }
+    }
+
+    _textoResultado =
+        "A quantidade de números pares e ímpares da lista $numberList é: ";
+    resultadoFinal = "$isEven são pares e $isOdd são ímpares";
   }
 
   void _desafioSelecionado(int valor) {
