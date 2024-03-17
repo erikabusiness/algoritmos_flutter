@@ -67,6 +67,20 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
+  void desafio18() {
+    String palavra = "eu";
+    String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
+
+    String palavraMinusc = palavra.toLowerCase();
+    String fraseMinusc = frase.toLowerCase();
+
+    List<String> palavrasDaFrase = fraseMinusc.split(' ');
+
+    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
+
+    resultadoFinal = "Resultado: $contagem";
+  }
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -74,6 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 5:
           desafio05();
+          break;
+        case 18:
+          desafio18();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -110,6 +127,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 18,
+                    child: Text('Desafio 18'),
                   ),
                 ],
               ),
