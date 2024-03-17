@@ -54,18 +54,17 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
-  void desafio18() {
-    String palavra = "eu";
-    String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
+  void desafio05() {
+    List<int> valores = [11, 11];
+    int soma = valores[0] + valores[1];
+    int mult = valores[0] * valores[1];
 
-    String palavraMinusc = palavra.toLowerCase();
-    String fraseMinusc = frase.toLowerCase();
-
-    List<String> palavrasDaFrase = fraseMinusc.split(' ');
-
-    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
-
-    print("Resultado: $contagem");
+    (valores[0] == valores[1])
+        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
+        : (
+            _textoResultado = 'A Multiplicação dos valores é: ',
+            resultadoFinal = '$mult'
+          );
   }
 
   void _desafioSelecionado(int valor) {
@@ -73,8 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 18:
-          desafio18();
+        case 5:
+          desafio05();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -106,6 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 5,
+                    child: Text('Desafio 05'),
                   ),
                 ],
               ),
