@@ -54,6 +54,17 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio01() {
+    int a = 30;
+    int b = 15;
+
+    if (a > b) {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$a');
+    } else {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
+    }
+  }
+
   void desafio13() {
     //inicializa uma lista com 10 numeros inteiros
     List<int> numberList = [3, 54, 15, 7, 73, 10, 42, 2, 9, 13];
@@ -109,6 +120,9 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 1:
+          desafio01();
+          break;
         case 13:
           desafio13();
         case 5:
@@ -150,6 +164,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
+                    value: 1,
+                    child: Text('Desafio 01'),
+                  ),
+                  DropdownMenuItem<int>(
                     value: 13,
                     child: Text('Desafio 13'),
                   ),
@@ -157,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 5,
                     child: Text('Desafio 05'),
                   ),
-                   DropdownMenuItem<int>(
+                  DropdownMenuItem<int>(
                     value: 10,
                     child: Text('Desafio 10'),
                   ),
