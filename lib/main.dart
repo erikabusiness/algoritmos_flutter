@@ -83,9 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
     double media = somaDasNotas / notas.length;
 
     if (media >= 7) {
-      _textoResultado = "Média do aluno: $media. Aluno APROVADO!";
+      (_textoResultado = "Média do aluno: $media.", resultadoFinal= "Aluno APROVADO!");
     } else {
-      resultadoFinal = "Média do aluno: $media. Aluno REPROVADO!";
+      (_textoResultado = "Média do aluno: $media.", resultadoFinal = "Aluno REPROVADO!");
     }
   }
 
