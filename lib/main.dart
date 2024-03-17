@@ -83,7 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 9:
           desafio9();
-          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -113,8 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 items: const <DropdownMenuItem<int>>[
                   DropdownMenuItem<int>(
-                    value: 9,
-                    child: Text('Desafio 9'),
+                    value: 0,
+                    child: Text('Nenhum desafio selecionado'),
                   ),
                 ],
               ),
