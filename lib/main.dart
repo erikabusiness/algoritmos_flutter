@@ -54,6 +54,26 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio13() {
+    //inicializa uma lista com 10 numeros inteiros
+    List<int> numberList = [3, 54, 15, 7, 73, 10, 42, 2, 9, 13];
+    //variaveis para contagem de numeros pares e impares
+    int isEven = 0;
+    int isOdd = 0;
+
+    for (int i = 0; i < numberList.length; i++) {
+      if (numberList[i] % 2 == 0) {
+        isEven++;
+      } else {
+        isOdd++;
+      }
+    }
+
+    _textoResultado =
+        "A quantidade de números pares e ímpares da lista $numberList é: ";
+    resultadoFinal = "$isEven são pares e $isOdd são ímpares";
+  }
+
   void desafio05() {
     List<int> valores = [11, 11];
     int soma = valores[0] + valores[1];
@@ -72,6 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 13:
+          desafio13();
         case 5:
           desafio05();
           break;
@@ -106,6 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 13,
+                    child: Text('Desafio 13'),
                   ),
                   DropdownMenuItem<int>(
                     value: 5,
