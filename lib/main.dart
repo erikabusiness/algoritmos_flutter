@@ -74,6 +74,19 @@ class _MyHomePageState extends State<MyHomePage> {
     resultadoFinal = "$isEven são pares e $isOdd são ímpares";
   }
 
+  void desafio05() {
+    List<int> valores = [11, 11];
+    int soma = valores[0] + valores[1];
+    int mult = valores[0] * valores[1];
+
+    (valores[0] == valores[1])
+        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
+        : (
+            _textoResultado = 'A Multiplicação dos valores é: ',
+            resultadoFinal = '$mult'
+          );
+  }
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -81,6 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 13:
           desafio13();
+        case 5:
+          desafio05();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -117,6 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 13,
                     child: Text('Desafio 13'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 5,
+                    child: Text('Desafio 05'),
                   ),
                 ],
               ),
