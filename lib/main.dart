@@ -65,6 +65,22 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
   
+  void desafio2() {
+    //Inicializando os valores de a,b,c.
+    int numeroA = 5;
+    int numeroB = 8;
+    int numeroC = 2;
+
+    int soma = numeroA + numeroB;
+    _textoResultado = 'a soma de A+B é: $soma';
+
+    if (soma > numeroC) {
+      resultadoFinal = 'A soma é maior do que C.';
+    } else if (soma < numeroC) {
+      resultadoFinal = 'A soma é menor do que C.';
+    } else {
+      resultadoFinal = 'A soma é igual a C.';
+  
   void desafio11() {
     int numero = 5;
     int resultado = 0;
@@ -133,6 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
       mostrarResultado = false;
       switch (counter) {
           
+          case 2:
+          desafio2();
           case 11:
           desafio11();
         case 1:
@@ -179,6 +197,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
+                    
+                    value: 2,
+                    child: Text('Desafio 2'),
                        value: 11,
                     child: Text('Desafio 11'),
                     value: 1,
