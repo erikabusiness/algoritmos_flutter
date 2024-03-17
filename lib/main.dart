@@ -67,6 +67,28 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
+  void desafio9() {
+    List<double> notasDoAluno = [7.5, 8.0, 6.5, 9.0, 7.0];
+
+    verificaAprovacao(notasDoAluno);
+  }
+
+  void verificaAprovacao(List<double> notas) {
+    double somaDasNotas = 0;
+
+    for (double nota in notas) {
+      somaDasNotas += nota;
+    }
+
+    double media = somaDasNotas / notas.length;
+
+    if (media >= 7) {
+      resultadoFinal = "Média do aluno: $media. Aluno APROVADO!";
+    } else {
+      resultadoFinal = "Média do aluno: $media. Aluno REPROVADO!";
+    }
+  }
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -74,6 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 5:
           desafio05();
+          break;
+        case 9:
+          desafio9();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -110,6 +135,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 9,
+                    child: Text('Desafio 09'),
                   ),
                 ],
               ),
