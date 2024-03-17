@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue,
-          inversePrimary: Colors.amber),
+            seedColor: Colors.blue, inversePrimary: Colors.amber),
         useMaterial3: true,
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme.copyWith(
@@ -50,19 +49,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   int counter = 0;
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio05() {
+    List<int> valores = [11, 11];
+    int soma = valores[0] + valores[1];
+    int mult = valores[0] * valores[1];
+
+    (valores[0] == valores[1])
+        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
+        : (
+            _textoResultado = 'A Multiplicação dos valores é: ',
+            resultadoFinal = '$mult'
+          );
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 5:
+          desafio05();
+          break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
           resultadoFinal = "";
@@ -95,9 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
                   ),
+                  DropdownMenuItem<int>(
+                    value: 5,
+                    child: Text('Desafio 05'),
+                  ),
                 ],
               ),
-              const SizedBox(height: 20), // Espaçamento entre o DropdownButton e o botão
+              const SizedBox(
+                  height: 20), // Espaçamento entre o DropdownButton e o botão
               ElevatedButton(
                 onPressed: () {
                   setState(() {
