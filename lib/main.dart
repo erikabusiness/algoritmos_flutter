@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -53,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
+  Random random = Random();
 
   void desafio05() {
     List<int> valores = [11, 11];
@@ -67,6 +69,23 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
+
+    void desafio15() {
+    // Gerando um número aleatório entre 1 e 10 como limite
+    int limite = random.nextInt(10) + 1;
+
+    // Preenchendo a lista com números de 1 até o limite
+    List<int> lista = [];
+    for (int i = 0; i <= limite; i++) {
+      lista.add(i);
+    }
+
+    // Atualizando a tela para mostrar o novo número aleatório e a lista
+    _textoResultado = 'Entrada: $limite';
+    resultadoFinal = 'Saída: $lista';
+  }
+
+  
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -74,6 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 5:
           desafio05();
+          break;
+          case 15:
+          desafio15();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -110,6 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 15,
+                    child: Text('Desafio 15'),
                   ),
                 ],
               ),
