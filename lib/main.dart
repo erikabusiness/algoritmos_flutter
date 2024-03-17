@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -54,27 +55,23 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
-  void desafio16() {
-  bool ehPalindromo(String palavra) {
-    palavra = palavra.toLowerCase();
-    return palavra == palavra.split('').reversed.join('');
+  void desafio14() {
+   
+    List<int> numeros = [20, 1, 23, 162, 24, 1, 90, 32, 11, 8];
+    int menor = numeros.reduce(min);
+    int maior = numeros.reduce(max);
+    _textoResultado =
+        "O menor e o maior valor da lista respectivamente são: ";
+    resultadoFinal = "$menor e $maior.";
   }
-
-  String palavra = "Arara";
-  if (ehPalindromo(palavra)) {
-    (_textoResultado = 'A palavra "$palavra"' , resultadoFinal= 'é um palíndromo!');
-  } else {
-    (_textoResultado = 'A palavra "$palavra"' , resultadoFinal= ' não é um palíndromo!');
-  }
-}
 
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 16:
-          desafio16();
+        case 14:
+          desafio14();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -109,8 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
-                    value: 16,
-                    child: Text('Desafio 16'),
+                    value: 14,
+                    child: Text('Desafio 14'),
                   ),
                 ],
               ),
