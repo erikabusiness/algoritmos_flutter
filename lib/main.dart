@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +55,28 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio04() {
+  // Chamando a função para inicializar um número aleatório
+  inicializarNumero();
+}
+
+void inicializarNumero() {
+  // Criando uma instância da classe Random
+  Random random = Random();
+
+  // Gerando um número aleatório entre 0 e 100 (você pode ajustar o intervalo conforme necessário)
+  int numero = random.nextInt(101);
+
+  // Calculando o antecessor e o sucessor do número aleatório
+  int antecessor = numero - 1;
+  int sucessor = numero + 1;
+
+  // Mostrando na tela o número aleatório, seu antecessor e seu sucessor
+  _textoResultado = 'O número aleatório, o antecessor e o sucessor são, respectivamente:';
+  resultadoFinal =  '$numero, $antecessor e $sucessor';
+  
+}
+
   void desafio05() {
     List<int> valores = [11, 11];
     int soma = valores[0] + valores[1];
@@ -67,11 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
+
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 4:
+          desafio04();
+          break;
         case 5:
           desafio05();
           break;
@@ -106,6 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 0,
                     child: Text('Nenhum desafio selecionado'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 4,
+                    child: Text('Desafio 04'),
                   ),
                   DropdownMenuItem<int>(
                     value: 5,
