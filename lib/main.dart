@@ -78,6 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
 
+    _textoResultado = "A palavra $palavra aparece na frase $frase: ";
+
     resultadoFinal = "Resultado: $contagem";
   }
 
