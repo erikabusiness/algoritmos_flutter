@@ -67,6 +67,23 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
+  void desafio10() {
+    String nome = "Emerson Mendes";
+    int idade = 42; // Exemplo de idade
+
+    if (idade >= 18) {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'maior de idade'
+      );
+    } else {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'menor de idade'
+      );
+    }
+  }
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -74,6 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 5:
           desafio05();
+          break;
+        case 10:
+          desafio10();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -110,6 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
+                  ),
+                   DropdownMenuItem<int>(
+                    value: 10,
+                    child: Text('Desafio 10'),
                   ),
                 ],
               ),
