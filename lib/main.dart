@@ -64,6 +64,18 @@ class _MyHomePageState extends State<MyHomePage> {
       (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
     }
   }
+  
+  void desafio11() {
+    int numero = 5;
+    int resultado = 0;
+    int contador = 1;
+
+    while (contador <= 10) {
+      //Mudança do resultado das operações."linha abaixo".//
+      resultado = numero * contador;
+      _textoResultado = 'Tabuada do $numero';
+      resultadoFinal += '$resultado, ';
+      contador = contador + 1;
 
   void desafio13() {
     //inicializa uma lista com 10 numeros inteiros
@@ -120,6 +132,9 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+          
+          case 11:
+          desafio11();
         case 1:
           desafio01();
           break;
@@ -164,6 +179,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
+                       value: 11,
+                    child: Text('Desafio 11'),
                     value: 1,
                     child: Text('Desafio 01'),
                   ),
