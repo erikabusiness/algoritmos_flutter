@@ -55,13 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
-  void desafio04() {
-  // Chamando a função para inicializar um número aleatório
-  inicializarNumero();
-}
-
-void inicializarNumero() {
-  // Criando uma instância da classe Random
+  void desafio06() {
+ 
   Random random = Random();
 
   // Gerando um número aleatório entre 0 e 100 (você pode ajustar o intervalo conforme necessário)
@@ -97,11 +92,11 @@ void inicializarNumero() {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 4:
-          desafio04();
-          break;
         case 5:
           desafio05();
+          break;
+        case 6:
+          desafio06();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -136,12 +131,12 @@ void inicializarNumero() {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
-                    value: 4,
-                    child: Text('Desafio 04'),
-                  ),
-                  DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
+                  ),
+                   DropdownMenuItem<int>(
+                    value: 6,
+                    child: Text('Desafio 06'),
                   ),
                 ],
               ),
