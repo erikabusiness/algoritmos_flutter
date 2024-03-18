@@ -273,6 +273,30 @@ class _MyHomePageState extends State<MyHomePage> {
         : 'Não é um palíndromo';
   }
 
+  void desafio17(){
+    int numero = 5;
+    bool primo = true;
+
+    if(numero<=1){
+      primo=false;
+    }
+
+    for(int i=2;i<numero;i++){
+      if(numero%i==0){
+        primo=false;
+        break;
+      }
+    }
+
+    if(primo){
+      _textoResultado='O número $numero:';
+      resultadoFinal='É primo';
+    }else{
+      _textoResultado='O número $numero:';
+      resultadoFinal='Não é primo';
+    }
+  }
+
   void desafio18() {
     String palavra = "eu";
     String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
@@ -332,6 +356,9 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 16:
           _desafio16();
+          break;
+        case 17:
+          desafio17();
           break;
         case 18:
           desafio18();
@@ -415,6 +442,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 16,
                     child: Text('Desafio 16'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 17,
+                    child: Text('Desafio 17'),
                   ),
                   DropdownMenuItem<int>(
                     value: 18,
