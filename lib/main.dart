@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -55,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
+  Random random = Random();
 
   void desafio06() {
  
@@ -199,6 +201,23 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+
+    void desafio15() {
+    // Gerando um número aleatório entre 1 e 10 como limite
+    int limite = random.nextInt(10) + 1;
+
+    // Preenchendo a lista com números de 1 até o limite
+    List<int> lista = [];
+    for (int i = 0; i <= limite; i++) {
+      lista.add(i);
+    }
+
+    // Atualizando a tela para mostrar o novo número aleatório e a lista
+    _textoResultado = 'Entrada: $limite';
+    resultadoFinal = 'Saída: $lista';
+  }
+
+  
   void desafio7() {
     const double salarioMinimo = 1412.00;
     double salarioUsuario = 4000.00;
@@ -372,7 +391,7 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 5:
           desafio05();
-          break;
+          break; 
         case 6:
           desafio06();
           break;
@@ -399,6 +418,9 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 14:
         desafio14();
+        break;
+        case 15:
+          desafio15();
         break;
         case 16:
           desafio16();
@@ -496,6 +518,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 14,
                     child: Text('Desafio 14'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 15,
+                    child: Text('Desafio 15'),
                   ),
                   DropdownMenuItem<int>(
                     value: 16,
