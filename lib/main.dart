@@ -137,15 +137,15 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 2:
-          desafio2();
-        case 11:
-          desafio11();
         case 1:
           desafio01();
           break;
+        case 2:
+          desafio02();
+          break;
         case 13:
           desafio13();
+          break;
         case 5:
           desafio05();
           break;
