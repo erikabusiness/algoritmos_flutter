@@ -54,6 +54,35 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio01() {
+    int a = 30;
+    int b = 15;
+
+    if (a > b) {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$a');
+    } else {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
+    }
+  }
+
+  void desafio2() {
+    //Inicializando os valores de a,b,c.
+    int numeroA = 5;
+    int numeroB = 8;
+    int numeroC = 2;
+
+    int soma = numeroA + numeroB;
+    _textoResultado = 'a soma de A+B é: $soma';
+
+    if (soma > numeroC) {
+      resultadoFinal = 'A soma é maior do que C.';
+    } else if (soma < numeroC) {
+      resultadoFinal = 'A soma é menor do que C.';
+    } else {
+      resultadoFinal = 'A soma é igual a C.';
+    }
+  }
+
   void desafio04() {
     int num = -9;
 
@@ -86,36 +115,37 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  void desafio01() {
-    int a = 30;
-    int b = 15;
+  void desafio05() {
+    List<int> valores = [11, 11];
+    int soma = valores[0] + valores[1];
+    int mult = valores[0] * valores[1];
 
-    if (a > b) {
-      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$a');
+    (valores[0] == valores[1])
+        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
+        : (
+            _textoResultado = 'A Multiplicação dos valores é: ',
+            resultadoFinal = '$mult'
+          );
+  }
+
+void desafio10() {
+    String nome = "Emerson Mendes";
+    int idade = 42; // Exemplo de idade
+
+    if (idade >= 18) {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'maior de idade'
+      );
     } else {
-      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'menor de idade'
+      );
     }
   }
 
-  void desafio2() {
-    //Inicializando os valores de a,b,c.
-    int numeroA = 5;
-    int numeroB = 8;
-    int numeroC = 2;
-
-    int soma = numeroA + numeroB;
-    _textoResultado = 'a soma de A+B é: $soma';
-
-    if (soma > numeroC) {
-      resultadoFinal = 'A soma é maior do que C.';
-    } else if (soma < numeroC) {
-      resultadoFinal = 'A soma é menor do que C.';
-    } else {
-      resultadoFinal = 'A soma é igual a C.';
-    }
-  }
-
-  void desafio11() {
+    void desafio11() {
     int numero = 5;
     int resultado = 0;
     int contador = 1;
@@ -149,34 +179,31 @@ class _MyHomePageState extends State<MyHomePage> {
     resultadoFinal = "$isEven são pares e $isOdd são ímpares";
   }
 
-  void desafio05() {
-    List<int> valores = [11, 11];
-    int soma = valores[0] + valores[1];
-    int mult = valores[0] * valores[1];
-
-    (valores[0] == valores[1])
-        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
-        : (
-            _textoResultado = 'A Multiplicação dos valores é: ',
-            resultadoFinal = '$mult'
-          );
-  }
-
-  void desafio10() {
-    String nome = "Emerson Mendes";
-    int idade = 42; // Exemplo de idade
-
-    if (idade >= 18) {
-      (
-        _textoResultado = 'O nome da pessoa é $nome e ela é',
-        resultadoFinal = 'maior de idade'
-      );
-    } else {
-      (
-        _textoResultado = 'O nome da pessoa é $nome e ela é',
-        resultadoFinal = 'menor de idade'
-      );
+  void _desafio16() {
+    String removerCaracteresEspeciais(String palavraLimpa) {
+      return palavraLimpa
+          .replaceAll(RegExp(r'[áàâãä]'), 'a')
+          .replaceAll(RegExp(r'[éèêë]'), 'e')
+          .replaceAll(RegExp(r'[íìîï]'), 'i')
+          .replaceAll(RegExp(r'[óòôõö]'), 'o')
+          .replaceAll(RegExp(r'[úùûü]'), 'u')
+          .replaceAll(RegExp(r'[ç]'), 'c')
+          .replaceAll(RegExp(r'[0-9]'), '')
+          .replaceAll(RegExp(r'[^a-zA-Z\s]'), '')
+          .replaceAll(RegExp(r'\b\s+\b'), '');
     }
+
+    String palavra = 'Aí, Lima falou: “Olá, família!”';
+
+    String palavraMaiscula = palavra.toLowerCase();
+    String palavraMaiscSemAcento = removerCaracteresEspeciais(palavraMaiscula);
+
+    String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
+
+    _textoResultado = '$palavra:';
+    resultadoFinal = (palavraMaiscSemAcento == palavraInvertida)
+        ? 'É um palíndromo'
+        : 'Não é um palíndromo';
   }
 
   void _desafioSelecionado(int valor) {
@@ -184,26 +211,29 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-        case 4:
-          desafio04();
+        case 1:
+          desafio01();
           break;
         case 2:
           desafio2();
           break;
-        case 11:
-          desafio11();
-          break;
-        case 1:
-          desafio01();
-          break;
-        case 13:
-          desafio13();
+        case 4:
+          desafio04();
           break;
         case 5:
           desafio05();
           break;
         case 10:
           desafio10();
+          break;
+        case 11:
+          desafio11();
+          break;
+        case 13:
+          desafio13();
+          break;
+        case 16:
+          _desafio16();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -238,24 +268,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
-                    value: 4,
-                    child: Text('Desafio 4'),
+                    value: 1,
+                    child: Text('Desafio 01'),
                   ),
                   DropdownMenuItem<int>(
                     value: 2,
                     child: Text('Desafio 2'),
                   ),
                   DropdownMenuItem<int>(
-                    value: 11,
-                    child: Text('Desafio 11'),
-                  ),
-                  DropdownMenuItem<int>(
-                    value: 1,
-                    child: Text('Desafio 01'),
-                  ),
-                  DropdownMenuItem<int>(
-                    value: 13,
-                    child: Text('Desafio 13'),
+                    value: 4,
+                    child: Text('Desafio 4'),
                   ),
                   DropdownMenuItem<int>(
                     value: 5,
@@ -264,6 +286,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 10,
                     child: Text('Desafio 10'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 11,
+                    child: Text('Desafio 11'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 13,
+                    child: Text('Desafio 13'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 16,
+                    child: Text('Desafio 16'),
                   ),
                 ],
               ),
