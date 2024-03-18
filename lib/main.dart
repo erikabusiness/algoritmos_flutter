@@ -128,7 +128,19 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
-void desafio10() {
+  void _desafio7() {
+    const double salarioMinimo = 1412.00;
+    double salarioUsuario = 4000.00;
+    double contagemSalarios = salarioUsuario / salarioMinimo;
+    String salarioArredondado = contagemSalarios.toStringAsFixed(1);
+
+    _textoResultado = 'Seu salário equivale a: ';
+    resultadoFinal = contagemSalarios > 1
+        ? '$salarioArredondado salários mínimos'
+        : '$salarioArredondado salário mínimo';
+  }
+
+  void desafio10() {
     String nome = "Emerson Mendes";
     int idade = 42; // Exemplo de idade
 
@@ -145,10 +157,11 @@ void desafio10() {
     }
   }
 
-    void desafio11() {
+  void desafio11() {
     int numero = 5;
     int resultado = 0;
     int contador = 1;
+    resultadoFinal = ' ';
 
     while (contador <= 10) {
       //Mudança do resultado das operações."linha abaixo".//
@@ -223,6 +236,9 @@ void desafio10() {
         case 5:
           desafio05();
           break;
+        case 7:
+          _desafio7();
+          break;
         case 10:
           desafio10();
           break;
@@ -282,6 +298,10 @@ void desafio10() {
                   DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 7,
+                    child: Text('Desafio 07'),
                   ),
                   DropdownMenuItem<int>(
                     value: 10,
