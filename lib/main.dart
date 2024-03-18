@@ -140,6 +140,34 @@ class _MyHomePageState extends State<MyHomePage> {
         : '$salarioArredondado salário mínimo';
   }
 
+  void desafio9() {
+    List<double> notasDoAluno = [7.5, 8.0, 6.5, 9.0, 7.0];
+
+    verificaAprovacao(notasDoAluno);
+  }
+
+  void verificaAprovacao(List<double> notas) {
+    double somaDasNotas = 0;
+
+    for (double nota in notas) {
+      somaDasNotas += nota;
+    }
+
+    double media = somaDasNotas / notas.length;
+
+    if (media >= 7) {
+      (
+        _textoResultado = "Média do aluno: $media.",
+        resultadoFinal = "Aluno APROVADO!"
+      );
+    } else {
+      (
+        _textoResultado = "Média do aluno: $media.",
+        resultadoFinal = "Aluno REPROVADO!"
+      );
+    }
+  }
+
   void desafio10() {
     String nome = "Emerson Mendes";
     int idade = 42; // Exemplo de idade
@@ -255,6 +283,9 @@ class _MyHomePageState extends State<MyHomePage> {
         case 7:
           _desafio7();
           break;
+        case 9:
+          desafio9();
+          break;
         case 10:
           desafio10();
           break;
@@ -321,6 +352,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 7,
                     child: Text('Desafio 07'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 9,
+                    child: Text('Desafio 09'),
                   ),
                   DropdownMenuItem<int>(
                     value: 10,
