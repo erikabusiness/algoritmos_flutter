@@ -2,8 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -59,59 +57,57 @@ class _MyHomePageState extends State<MyHomePage> {
   Random random = Random();
 
   void desafio06() {
- 
-  Random random = Random();
+    Random random = Random();
 
-  // Gerando um número aleatório entre 0 e 100 (você pode ajustar o intervalo conforme necessário)
-  int numero = random.nextInt(101);
+    // Gerando um número aleatório entre 0 e 100 (você pode ajustar o intervalo conforme necessário)
+    int numero = random.nextInt(101);
 
-  // Calculando o antecessor e o sucessor do número aleatório
-  int antecessor = numero - 1;
-  int sucessor = numero + 1;
+    // Calculando o antecessor e o sucessor do número aleatório
+    int antecessor = numero - 1;
+    int sucessor = numero + 1;
 
-  // Mostrando na tela o número aleatório, seu antecessor e seu sucessor
-  _textoResultado = 'O número aleatório, o antecessor e o sucessor são, respectivamente:';
-  resultadoFinal =  '$numero, $antecessor e $sucessor';
-  
-}
-  void desafio17(){
+    // Mostrando na tela o número aleatório, seu antecessor e seu sucessor
+    _textoResultado =
+        'O número aleatório, o antecessor e o sucessor são, respectivamente:';
+    resultadoFinal = '$numero, $antecessor e $sucessor';
+  }
+
+  void desafio17() {
     int numero = 67;
     bool primo = true;
 
-    if(numero<=1){
-      primo=false;
+    if (numero <= 1) {
+      primo = false;
     }
 
-    for(int i=2;i<numero;i++){
-      if(numero%i==0){
-        primo=false;
+    for (int i = 2; i < numero; i++) {
+      if (numero % i == 0) {
+        primo = false;
         break;
       }
     }
 
-    if(primo){
-      _textoResultado='O número $numero:';
-      resultadoFinal='É primo';
-    }else{
-      _textoResultado='O número $numero:';
-      resultadoFinal='Não é primo';
+    if (primo) {
+      _textoResultado = 'O número $numero:';
+      resultadoFinal = 'É primo';
+    } else {
+      _textoResultado = 'O número $numero:';
+      resultadoFinal = 'Não é primo';
     }
   }
-  
-  void desafio08(){
-    List<int> numeros = [5,2,8];
+
+  void desafio08() {
+    List<int> numeros = [5, 2, 8];
     _textoResultado = 'A ordem decrescente da lista $numeros é : ';
-    numeros.sort();    
+    numeros.sort();
     resultadoFinal = numeros.reversed.toString();
   }
-  
+
   void desafio14() {
-   
     List<int> numeros = [20, 1, 23, 162, 24, 1, 90, 32, 11, 8];
     int menor = numeros.reduce(min);
     int maior = numeros.reduce(max);
-    _textoResultado =
-        "O menor e o maior valor da lista respectivamente são: ";
+    _textoResultado = "O menor e o maior valor da lista respectivamente são: ";
     resultadoFinal = "$menor e $maior.";
   }
 
@@ -120,9 +116,15 @@ class _MyHomePageState extends State<MyHomePage> {
     int b = 15;
 
     if (a > b) {
-      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$a');
+      (
+        _textoResultado = 'O maior valor entre $a e $b é: ',
+        resultadoFinal = '$a'
+      );
     } else {
-      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
+      (
+        _textoResultado = 'O maior valor entre $a e $b é: ',
+        resultadoFinal = '$b'
+      );
     }
   }
 
@@ -133,14 +135,14 @@ class _MyHomePageState extends State<MyHomePage> {
     int numeroC = 2;
 
     int soma = numeroA + numeroB;
-    _textoResultado = 'a soma de A+B é: $soma';
+    _textoResultado = 'a soma de A($numeroA)+B($numeroB) é: $soma';
 
     if (soma > numeroC) {
-      resultadoFinal = 'A soma é maior do que C.';
+      resultadoFinal = 'A soma é maior do que C($numeroC).';
     } else if (soma < numeroC) {
-      resultadoFinal = 'A soma é menor do que C.';
+      resultadoFinal = 'A soma é menor do que C($numeroC).';
     } else {
-      resultadoFinal = 'A soma é igual a C.';
+      resultadoFinal = 'A soma é igual a C($numeroC).';
     }
   }
 
@@ -162,26 +164,26 @@ class _MyHomePageState extends State<MyHomePage> {
     if (num > 0) {
       if (num % 2 == 0) {
         (
-        _textoResultado = "O número $num é: ",
-        resultadoFinal = "Positivo e par"
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e par"
         );
       } else {
         (
-        _textoResultado = "O número $num é: ",
-        resultadoFinal = "Positivo e ímpar"
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e ímpar"
         );
       }
     } else {
       if (num < 0) {
         if (num % 2 == 0) {
           (
-          _textoResultado = "O número $num é: ",
-          resultadoFinal = "Negativo e par"
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e par"
           );
         } else {
           (
-          _textoResultado = "O número $num é: ",
-          resultadoFinal = "Negativo e ímpar"
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e ímpar"
           );
         }
       }
@@ -196,13 +198,12 @@ class _MyHomePageState extends State<MyHomePage> {
     (valores[0] == valores[1])
         ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
         : (
-    _textoResultado = 'A Multiplicação dos valores é: ',
-    resultadoFinal = '$mult'
-    );
+            _textoResultado = 'A Multiplicação dos valores é: ',
+            resultadoFinal = '$mult'
+          );
   }
 
-
-    void desafio15() {
+  void desafio15() {
     // Gerando um número aleatório entre 1 e 10 como limite
     int limite = random.nextInt(10) + 1;
 
@@ -217,7 +218,6 @@ class _MyHomePageState extends State<MyHomePage> {
     resultadoFinal = 'Saída: $lista';
   }
 
-  
   void desafio7() {
     const double salarioMinimo = 1412.00;
     double salarioUsuario = 4000.00;
@@ -247,13 +247,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (media >= 7) {
       (
-      _textoResultado = "Média do aluno: $media.",
-      resultadoFinal = "Aluno APROVADO!"
+        _textoResultado = "Média do aluno: $media.",
+        resultadoFinal = "Aluno APROVADO!"
       );
     } else {
       (
-      _textoResultado = "Média do aluno: $media.",
-      resultadoFinal = "Aluno REPROVADO!"
+        _textoResultado = "Média do aluno: $media.",
+        resultadoFinal = "Aluno REPROVADO!"
       );
     }
   }
@@ -264,13 +264,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (idade >= 18) {
       (
-      _textoResultado = 'O nome da pessoa é $nome e ela é',
-      resultadoFinal = 'maior de idade'
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'maior de idade'
       );
     } else {
       (
-      _textoResultado = 'O nome da pessoa é $nome e ela é',
-      resultadoFinal = 'menor de idade'
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'menor de idade'
       );
     }
   }
@@ -290,7 +290,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-
   void desafio12() {
     List<int> listaInicial = [2, 4, 8];
     List<int> listaFinal = [];
@@ -299,6 +298,9 @@ class _MyHomePageState extends State<MyHomePage> {
       int numeroQuadrado = listaInicial[i] * listaInicial[i];
       listaFinal.add(numeroQuadrado);
     }
+
+    resultadoFinal = listaFinal.toString();
+    _textoResultado = 'O quadrado dos números $listaInicial é: ';
   }
 
   void desafio13() {
@@ -317,7 +319,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     _textoResultado =
-    "A quantidade de números pares e ímpares da lista $numberList é: ";
+        "A quantidade de números pares e ímpares da lista $numberList é: ";
     resultadoFinal = "$isEven são pares e $isOdd são ímpares";
   }
 
@@ -340,10 +342,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String palavraMaiscula = palavra.toLowerCase();
     String palavraMaiscSemAcento = removerCaracteresEspeciais(palavraMaiscula);
 
-    String palavraInvertida = palavraMaiscSemAcento
-        .split('')
-        .reversed
-        .join('');
+    String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
 
     _textoResultado = '$palavra:';
     resultadoFinal = (palavraMaiscSemAcento == palavraInvertida)
@@ -360,16 +359,51 @@ class _MyHomePageState extends State<MyHomePage> {
 
     List<String> palavrasDaFrase = fraseMinusc.split(' ');
 
-    int contagem = palavrasDaFrase
-        .where((p) => p == palavraMinusc)
-        .length;
+    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
 
     _textoResultado = "A palavra $palavra aparece na frase $frase: ";
 
     resultadoFinal = "Resultado: $contagem";
   }
 
+  void desafio19() {
+    List<String> palavras = [
+      'foR',
+      'scream',
+      'CaRs',
+      'poTatos',
+      'racs',
+      'creams',
+      'scar',
+      'four'
+    ];
 
+    String organizarPalavra(String palavra) {
+      palavra = palavra.toLowerCase();
+      List<String> letras = palavra.split('');
+      letras.sort();
+      return letras.join('');
+    }
+
+    List<List<String>> organizarLista(List<String> palavras) {
+      Map<String, List<String>> mapa = {};
+
+      for (String palavra in palavras) {
+        String chave = organizarPalavra(palavra);
+        if (!mapa.containsKey(chave)) {
+          mapa[chave] = [];
+        }
+        mapa[chave]!.add(palavra);
+      }
+
+      return mapa.values.toList();
+    }
+
+    List<List<String>> listaOrganizada = organizarLista(palavras);
+
+    _textoResultado = '';
+    resultadoFinal = '$listaOrganizada';
+  }
 
   void _desafioSelecionado(int valor) {
     setState(() {
@@ -391,7 +425,7 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 5:
           desafio05();
-          break; 
+          break;
         case 6:
           desafio06();
           break;
@@ -417,11 +451,11 @@ class _MyHomePageState extends State<MyHomePage> {
           desafio13();
           break;
         case 14:
-        desafio14();
-        break;
+          desafio14();
+          break;
         case 15:
           desafio15();
-        break;
+          break;
         case 16:
           desafio16();
           break;
@@ -430,6 +464,9 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 18:
           desafio18();
+          break;
+        case 19:
+          desafio19();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -483,10 +520,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 5,
                     child: Text('Desafio 05'),
                   ),
-                   DropdownMenuItem<int>(
+                  DropdownMenuItem<int>(
                     value: 6,
                     child: Text('Desafio 06'),
-                   ),
+                  ),
                   DropdownMenuItem<int>(
                     value: 7,
                     child: Text('Desafio 07'),
@@ -535,6 +572,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 18,
                     child: Text('Desafio 18'),
                   ),
+                  DropdownMenuItem<int>(
+                    value: 19,
+                    child: Text('Desafio 19'),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -546,8 +587,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
                 child: const Text('Mostrar Resultado'),
-              ), const SizedBox(
-                  height: 20),
+              ),
+              const SizedBox(height: 20),
               Visibility(
                 visible: mostrarResultado,
                 child: Column(
