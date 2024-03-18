@@ -65,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-<<<<<<< HEAD
   void desafio13() {
     //inicializa uma lista com 10 numeros inteiros
     List<int> numberList = [3, 54, 15, 7, 73, 10, 42, 2, 9, 13];
@@ -98,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
-  void desafio2() {
+  void desafio02() {
     //Inicializando os valores de a,b,c.
     int numeroA = 5;
     int numeroB = 8;
@@ -113,6 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
       resultadoFinal = 'A soma é menor do que C.';
     } else {
       resultadoFinal = 'A soma é igual a C.';
+    }
+  }
 
   void desafio10() {
     String nome = "Emerson Mendes";
@@ -128,26 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
         _textoResultado = 'O nome da pessoa é $nome e ela é',
         resultadoFinal = 'menor de idade'
       );
->>>>>>> 92b78897e0778a236ee76b1e25bbd94991db64ba
     }
   }
-
-   void desafio2() {
-    //Inicializando os valores de a,b,c.
-    int numeroA = 5;
-    int numeroB = 8;
-    int numeroC = 2;
-
-    int soma = numeroA + numeroB;
-    _textoResultado = 'a soma de A+B é: $soma';
-
-    if (soma > numeroC) {
-      resultadoFinal = 'A soma é maior do que C.';
-    } else if (soma < numeroC) {
-      resultadoFinal = 'A soma é menor do que C.';
-    } else {
-      resultadoFinal = 'A soma é igual a C.';
-    }
 
   void _desafioSelecionado(int valor) {
     setState(() {
@@ -155,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
       mostrarResultado = false;
       switch (counter) {
         case 2:
-          desafio2();
+          desafio02();
         case 1:
           desafio01();
           break;
@@ -206,6 +189,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 2,
                     child: Text('Desafio 2'),
+                  ),
+                  DropdownMenuItem<int>(
                     value: 13,
                     child: Text('Desafio 13'),
                   ),
