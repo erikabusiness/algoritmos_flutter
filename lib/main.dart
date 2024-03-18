@@ -55,6 +55,30 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio17(){
+    int numero = 67;
+    bool primo = true;
+
+    if(numero<=1){
+      primo=false;
+    }
+
+    for(int i=2;i<numero;i++){
+      if(numero%i==0){
+        primo=false;
+        break;
+      }
+    }
+
+    if(primo){
+      _textoResultado='O número $numero:';
+      resultadoFinal='É primo';
+    }else{
+      _textoResultado='O número $numero:';
+      resultadoFinal='Não é primo';
+    }
+  }
+  
   void desafio08(){
     List<int> numeros = [5,2,8];
     _textoResultado = 'A ordem decrescente da lista $numeros é : ';
@@ -357,6 +381,9 @@ class _MyHomePageState extends State<MyHomePage> {
         case 16:
           desafio16();
           break;
+        case 17:
+          desafio17();
+          break;
         case 18:
           desafio18();
           break;
@@ -447,6 +474,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 16,
                     child: Text('Desafio 16'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 17,
+                    child: Text('Desafio 17'),
                   ),
                   DropdownMenuItem<int>(
                     value: 18,
