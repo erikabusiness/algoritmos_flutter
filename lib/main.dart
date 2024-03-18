@@ -55,6 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio08(){
+    List<int> numeros = [5,2,8];
+    _textoResultado = 'A ordem decrescente da lista $numeros é : ';
+    numeros.sort();    
+    resultadoFinal = numeros.reversed.toString();
+  }
+  
   void desafio14() {
    
     List<int> numeros = [20, 1, 23, 162, 24, 1, 90, 32, 11, 8];
@@ -308,9 +315,6 @@ class _MyHomePageState extends State<MyHomePage> {
       mostrarResultado = false;
 
       switch (counter) {
-        case 14:
-          desafio14();
-          break;
         case 1:
           desafio01();
           break;
@@ -329,6 +333,9 @@ class _MyHomePageState extends State<MyHomePage> {
         case 7:
           desafio7();
           break;
+        case 8:
+          desafio08();
+          break;
         case 9:
           desafio9();
           break;
@@ -344,6 +351,9 @@ class _MyHomePageState extends State<MyHomePage> {
         case 13:
           desafio13();
           break;
+        case 14:
+        desafio14();
+        break;
         case 16:
           desafio16();
           break;
@@ -405,6 +415,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 7,
                     child: Text('Desafio 07'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 8,
+                    child: Text('Desafio 08'),
                   ),
                   DropdownMenuItem<int>(
                     value: 9,
