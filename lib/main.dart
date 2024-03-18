@@ -54,6 +54,67 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio01() {
+    int a = 30;
+    int b = 15;
+
+    if (a > b) {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$a');
+    } else {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
+    }
+  }
+
+  void desafio2() {
+    //Inicializando os valores de a,b,c.
+    int numeroA = 5;
+    int numeroB = 8;
+    int numeroC = 2;
+
+    int soma = numeroA + numeroB;
+    _textoResultado = 'a soma de A+B é: $soma';
+
+    if (soma > numeroC) {
+      resultadoFinal = 'A soma é maior do que C.';
+    } else if (soma < numeroC) {
+      resultadoFinal = 'A soma é menor do que C.';
+    } else {
+      resultadoFinal = 'A soma é igual a C.';
+    }
+  }
+
+  void desafio04() {
+    int num = -9;
+
+    if (num > 0) {
+      if (num % 2 == 0) {
+        (
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e par"
+        );
+      } else {
+        (
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e ímpar"
+        );
+      }
+    } else {
+      if (num < 0) {
+        if (num % 2 == 0) {
+          (
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e par"
+          );
+        } else {
+          (
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e ímpar"
+          );
+        }
+      }
+    }
+  }
+
   void desafio05() {
     List<int> valores = [11, 11];
     int soma = valores[0] + valores[1];
@@ -67,20 +128,95 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
-  void desafio18() {
-    String palavra = "eu";
-    String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
+  void _desafio7() {
+    const double salarioMinimo = 1412.00;
+    double salarioUsuario = 4000.00;
+    double contagemSalarios = salarioUsuario / salarioMinimo;
+    String salarioArredondado = contagemSalarios.toStringAsFixed(1);
 
-    String palavraMinusc = palavra.toLowerCase();
-    String fraseMinusc = frase.toLowerCase();
+    _textoResultado = 'Seu salário equivale a: ';
+    resultadoFinal = contagemSalarios > 1
+        ? '$salarioArredondado salários mínimos'
+        : '$salarioArredondado salário mínimo';
+  }
 
-    List<String> palavrasDaFrase = fraseMinusc.split(' ');
+  void desafio10() {
+    String nome = "Emerson Mendes";
+    int idade = 42; // Exemplo de idade
 
-    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
+    if (idade >= 18) {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'maior de idade'
+      );
+    } else {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'menor de idade'
+      );
+    }
+  }
 
-    _textoResultado = "A palavra $palavra aparece na frase $frase: ";
+  void desafio11() {
+    int numero = 5;
+    int resultado = 0;
+    int contador = 1;
+    resultadoFinal = ' ';
 
-    resultadoFinal = "Resultado: $contagem";
+    while (contador <= 10) {
+      //Mudança do resultado das operações."linha abaixo".//
+      resultado = numero * contador;
+      _textoResultado = 'Tabuada do $numero';
+      resultadoFinal += '$resultado, ';
+      contador = contador + 1;
+    }
+  }
+
+  void desafio13() {
+    //inicializa uma lista com 10 numeros inteiros
+    List<int> numberList = [3, 54, 15, 7, 73, 10, 42, 2, 9, 13];
+    //variaveis para contagem de numeros pares e impares
+    int isEven = 0;
+    int isOdd = 0;
+
+    for (int i = 0; i < numberList.length; i++) {
+      if (numberList[i] % 2 == 0) {
+        isEven++;
+      } else {
+        isOdd++;
+      }
+    }
+
+    _textoResultado =
+        "A quantidade de números pares e ímpares da lista $numberList é: ";
+    resultadoFinal = "$isEven são pares e $isOdd são ímpares";
+  }
+
+  void _desafio16() {
+    String removerCaracteresEspeciais(String palavraLimpa) {
+      return palavraLimpa
+          .replaceAll(RegExp(r'[áàâãä]'), 'a')
+          .replaceAll(RegExp(r'[éèêë]'), 'e')
+          .replaceAll(RegExp(r'[íìîï]'), 'i')
+          .replaceAll(RegExp(r'[óòôõö]'), 'o')
+          .replaceAll(RegExp(r'[úùûü]'), 'u')
+          .replaceAll(RegExp(r'[ç]'), 'c')
+          .replaceAll(RegExp(r'[0-9]'), '')
+          .replaceAll(RegExp(r'[^a-zA-Z\s]'), '')
+          .replaceAll(RegExp(r'\b\s+\b'), '');
+    }
+
+    String palavra = 'Aí, Lima falou: “Olá, família!”';
+
+    String palavraMaiscula = palavra.toLowerCase();
+    String palavraMaiscSemAcento = removerCaracteresEspeciais(palavraMaiscula);
+
+    String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
+
+    _textoResultado = '$palavra:';
+    resultadoFinal = (palavraMaiscSemAcento == palavraInvertida)
+        ? 'É um palíndromo'
+        : 'Não é um palíndromo';
   }
 
   void _desafioSelecionado(int valor) {
@@ -88,11 +224,32 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
+        case 1:
+          desafio01();
+          break;
+        case 2:
+          desafio2();
+          break;
+        case 4:
+          desafio04();
+          break;
         case 5:
           desafio05();
           break;
-        case 18:
-          desafio18();
+        case 7:
+          _desafio7();
+          break;
+        case 10:
+          desafio10();
+          break;
+        case 11:
+          desafio11();
+          break;
+        case 13:
+          desafio13();
+          break;
+        case 16:
+          _desafio16();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -127,12 +284,40 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
+                    value: 1,
+                    child: Text('Desafio 01'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 2,
+                    child: Text('Desafio 2'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 4,
+                    child: Text('Desafio 4'),
+                  ),
+                  DropdownMenuItem<int>(
                     value: 5,
                     child: Text('Desafio 05'),
                   ),
                   DropdownMenuItem<int>(
-                    value: 18,
-                    child: Text('Desafio 18'),
+                    value: 7,
+                    child: Text('Desafio 07'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 10,
+                    child: Text('Desafio 10'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 11,
+                    child: Text('Desafio 11'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 13,
+                    child: Text('Desafio 13'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 16,
+                    child: Text('Desafio 16'),
                   ),
                 ],
               ),
