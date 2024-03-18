@@ -82,12 +82,12 @@ class _MyHomePageState extends State<MyHomePage> {
       resultadoFinal = 'A soma é igual a C.';
     }
   }
-    
-   void desafio03() {
+
+  void desafio03() {
     int numeroInicial = 7;
     int resultado = 1;
 
-    for(int i = 1; i <= numeroInicial; i++) {
+    for (int i = 1; i <= numeroInicial; i++) {
       resultado *= i;
     }
 
@@ -101,26 +101,26 @@ class _MyHomePageState extends State<MyHomePage> {
     if (num > 0) {
       if (num % 2 == 0) {
         (
-          _textoResultado = "O número $num é: ",
-          resultadoFinal = "Positivo e par"
+        _textoResultado = "O número $num é: ",
+        resultadoFinal = "Positivo e par"
         );
       } else {
         (
-          _textoResultado = "O número $num é: ",
-          resultadoFinal = "Positivo e ímpar"
+        _textoResultado = "O número $num é: ",
+        resultadoFinal = "Positivo e ímpar"
         );
       }
     } else {
       if (num < 0) {
         if (num % 2 == 0) {
           (
-            _textoResultado = "O número $num é: ",
-            resultadoFinal = "Negativo e par"
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Negativo e par"
           );
         } else {
           (
-            _textoResultado = "O número $num é: ",
-            resultadoFinal = "Negativo e ímpar"
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Negativo e ímpar"
           );
         }
       }
@@ -135,9 +135,9 @@ class _MyHomePageState extends State<MyHomePage> {
     (valores[0] == valores[1])
         ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
         : (
-            _textoResultado = 'A Multiplicação dos valores é: ',
-            resultadoFinal = '$mult'
-          );
+    _textoResultado = 'A Multiplicação dos valores é: ',
+    resultadoFinal = '$mult'
+    );
   }
 
   void _desafio7() {
@@ -169,13 +169,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (media >= 7) {
       (
-        _textoResultado = "Média do aluno: $media.",
-        resultadoFinal = "Aluno APROVADO!"
+      _textoResultado = "Média do aluno: $media.",
+      resultadoFinal = "Aluno APROVADO!"
       );
     } else {
       (
-        _textoResultado = "Média do aluno: $media.",
-        resultadoFinal = "Aluno REPROVADO!"
+      _textoResultado = "Média do aluno: $media.",
+      resultadoFinal = "Aluno REPROVADO!"
       );
     }
   }
@@ -186,13 +186,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if (idade >= 18) {
       (
-        _textoResultado = 'O nome da pessoa é $nome e ela é',
-        resultadoFinal = 'maior de idade'
+      _textoResultado = 'O nome da pessoa é $nome e ela é',
+      resultadoFinal = 'maior de idade'
       );
     } else {
       (
-        _textoResultado = 'O nome da pessoa é $nome e ela é',
-        resultadoFinal = 'menor de idade'
+      _textoResultado = 'O nome da pessoa é $nome e ela é',
+      resultadoFinal = 'menor de idade'
       );
     }
   }
@@ -211,15 +211,16 @@ class _MyHomePageState extends State<MyHomePage> {
       contador = contador + 1;
     }
   }
-  
-  
+
+
   void desafio12() {
     List<int> listaInicial = [2, 4, 8];
     List<int> listaFinal = [];
 
-    for(int i = 0; i < listaInicial.length; i++) {
+    for (int i = 0; i < listaInicial.length; i++) {
       int numeroQuadrado = listaInicial[i] * listaInicial[i];
       listaFinal.add(numeroQuadrado);
+    }
   }
 
   void desafio13() {
@@ -238,7 +239,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     _textoResultado =
-        "A quantidade de números pares e ímpares da lista $numberList é: ";
+    "A quantidade de números pares e ímpares da lista $numberList é: ";
     resultadoFinal = "$isEven são pares e $isOdd são ímpares";
   }
 
@@ -261,7 +262,10 @@ class _MyHomePageState extends State<MyHomePage> {
     String palavraMaiscula = palavra.toLowerCase();
     String palavraMaiscSemAcento = removerCaracteresEspeciais(palavraMaiscula);
 
-    String palavraInvertida = palavraMaiscSemAcento.split('').reversed.join('');
+    String palavraInvertida = palavraMaiscSemAcento
+        .split('')
+        .reversed
+        .join('');
 
     _textoResultado = '$palavra:';
     resultadoFinal = (palavraMaiscSemAcento == palavraInvertida)
@@ -278,7 +282,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     List<String> palavrasDaFrase = fraseMinusc.split(' ');
 
-    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
+    int contagem = palavrasDaFrase
+        .where((p) => p == palavraMinusc)
+        .length;
 
     _textoResultado = "A palavra $palavra aparece na frase $frase: ";
 
@@ -289,8 +295,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       counter = valor;
       mostrarResultado = false;
-        
-      switch (counter)
+
+      switch (counter) {
         case 1:
           desafio01();
           break;
@@ -318,7 +324,7 @@ class _MyHomePageState extends State<MyHomePage> {
         case 11:
           desafio11();
           break;
-         case 12:
+        case 12:
           desafio12();
           break;
         case 13:
@@ -368,14 +374,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   DropdownMenuItem<int>(
                     value: 2,
-                    child: Text('Desafio 2'),
+                    child: Text('Desafio 02'),
                   ),
                   DropdownMenuItem<int>(
                     value: 3,
-                    child: Text('Desafio 3'),
+                    child: Text('Desafio 03'),
+                  ),
                   DropdownMenuItem<int>(
                     value: 4,
-                    child: Text('Desafio 4'),
+                    child: Text('Desafio 04'),
                   ),
                   DropdownMenuItem<int>(
                     value: 5,
@@ -400,6 +407,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 12,
                     child: Text('desafio 12'),
+                  ),
                   DropdownMenuItem<int>(
                     value: 13,
                     child: Text('Desafio 13'),
@@ -410,6 +418,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   DropdownMenuItem<int>(
                     value: 18,
+                    child: Text('Desafio 18'),
                   ),
                 ],
               ),
