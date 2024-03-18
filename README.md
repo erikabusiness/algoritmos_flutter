@@ -1,16 +1,23 @@
-# algoritmos_flutter
 
-A new Flutter project.
+## Sobre o Projeto
+Este repositório é o resultado do esforço colaborativo dos integrantes do squad Dart Vaders durante o programa Desenvolve Boticário. O projeto base foi criado com o intuito de proporcionar aos membros uma experiência prática no desenvolvimento com Flutter e nas práticas de uso do GitHub.
 
-## Getting Started
+## Squad DartVaders :)
 
-This project is a starting point for a Flutter application.
+|Adalto Mendes| Emerson Mendes | Erika Alves | Franciéllen Sousa | Jaqueline Dreyer | Jhonny Valente |
+|---|---|---|---|---|---|
+|<img src="./assets/integrantes/adalto.png" height="100" width="100">|<img src="./assets/integrantes/eme.png" height="100" width="100">|<img src="./assets/integrantes/erika.png" height="100" width="100">|<img src="./assets/integrantes/fran.png" height="100" width="100">|<img src="./assets/integrantes/jaque.png" height="100" width="100">| <img src="./assets/integrantes/jhonny.png" height="100" width="100">|
 
-A few resources to get you started if this is your first Flutter project:
+| João Rebouças | Kamila Teófilo |  Leidiane Silva | 
+|---|---|---|
+|<img src="./assets/integrantes/reboucas.png" height="100" width="100">|<img src="./assets/integrantes/kami.png" height="100" width="100">|<img src="./assets/integrantes/leidi.jpeg" height="100" width="100">|
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Objetivo
+O objetivo deste projeto é familiarizar todos os 9 integrantes do squad com o processo de desenvolvimento de software utilizando Flutter, bem como com as práticas de versionamento e colaboração através do GitHub.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Contribuições
+Cada membro do squad contribuiu com uma pequena parte do projeto, garantindo que todos tivessem a oportunidade de aprender e se desenvolver. As contribuições individuais estão documentadas nos commits do repositório.
+
+## Tecnologias Utilizadas
+- Flutter
+- Dart
