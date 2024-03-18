@@ -54,6 +54,15 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio12() {
+    List<int> listaInicial = [2, 4, 8];
+    List<int> listaFinal = [];
+
+    for(int i = 0; i < listaInicial.length; i++) {
+      int numeroQuadrado = listaInicial[i] * listaInicial[i];
+      listaFinal.add(numeroQuadrado);
+    }
+
   void desafio01() {
     int a = 30;
     int b = 15;
@@ -267,7 +276,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       counter = valor;
       mostrarResultado = false;
-      switch (counter) {
+      switch (counter)
         case 1:
           desafio01();
           break;
@@ -291,6 +300,9 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 11:
           desafio11();
+          break;
+         case 12:
+          desafio12();
           break;
         case 13:
           desafio13();
@@ -366,6 +378,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Desafio 11'),
                   ),
                   DropdownMenuItem<int>(
+                    value: 12,
+                    child: Text('desafio 12'),
+                  DropdownMenuItem<int>(
                     value: 13,
                     child: Text('Desafio 13'),
                   ),
@@ -375,7 +390,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   DropdownMenuItem<int>(
                     value: 18,
-                    child: Text('Desafio 18'),
                   ),
                 ],
               ),
