@@ -54,6 +54,38 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
+  void desafio04() {
+    int num = -9;
+
+    if (num > 0) {
+      if (num % 2 == 0) {
+        (
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e par"
+        );
+      } else {
+        (
+          _textoResultado = "O número $num é: ",
+          resultadoFinal = "Positivo e ímpar"
+        );
+      }
+    } else {
+      if (num < 0) {
+        if (num % 2 == 0) {
+          (
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e par"
+          );
+        } else {
+          (
+            _textoResultado = "O número $num é: ",
+            resultadoFinal = "Negativo e ímpar"
+          );
+        }
+      }
+    }
+  }
+
   void desafio01() {
     int a = 30;
     int b = 15;
@@ -64,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
       (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
     }
   }
-  
+
   void desafio2() {
     //Inicializando os valores de a,b,c.
     int numeroA = 5;
@@ -80,7 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
       resultadoFinal = 'A soma é menor do que C.';
     } else {
       resultadoFinal = 'A soma é igual a C.';
-  
+    }
+  }
+
   void desafio11() {
     int numero = 5;
     int resultado = 0;
@@ -92,6 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
       _textoResultado = 'Tabuada do $numero';
       resultadoFinal += '$resultado, ';
       contador = contador + 1;
+    }
+  }
 
   void desafio13() {
     //inicializa uma lista com 10 numeros inteiros
@@ -148,16 +184,21 @@ class _MyHomePageState extends State<MyHomePage> {
       counter = valor;
       mostrarResultado = false;
       switch (counter) {
-          
-          case 2:
+        case 4:
+          desafio04();
+          break;
+        case 2:
           desafio2();
-          case 11:
+          break;
+        case 11:
           desafio11();
+          break;
         case 1:
           desafio01();
           break;
         case 13:
           desafio13();
+          break;
         case 5:
           desafio05();
           break;
@@ -197,11 +238,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('Nenhum desafio selecionado'),
                   ),
                   DropdownMenuItem<int>(
-                    
+                    value: 4,
+                    child: Text('Desafio 4'),
+                  ),
+                  DropdownMenuItem<int>(
                     value: 2,
                     child: Text('Desafio 2'),
-                       value: 11,
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 11,
                     child: Text('Desafio 11'),
+                  ),
+                  DropdownMenuItem<int>(
                     value: 1,
                     child: Text('Desafio 01'),
                   ),
