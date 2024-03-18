@@ -86,6 +86,99 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void desafio01() {
+    int a = 30;
+    int b = 15;
+
+    if (a > b) {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$a');
+    } else {
+      (_textoResultado = 'O maior valor é: ', resultadoFinal = '$b');
+    }
+  }
+
+  void desafio2() {
+    //Inicializando os valores de a,b,c.
+    int numeroA = 5;
+    int numeroB = 8;
+    int numeroC = 2;
+
+    int soma = numeroA + numeroB;
+    _textoResultado = 'a soma de A+B é: $soma';
+
+    if (soma > numeroC) {
+      resultadoFinal = 'A soma é maior do que C.';
+    } else if (soma < numeroC) {
+      resultadoFinal = 'A soma é menor do que C.';
+    } else {
+      resultadoFinal = 'A soma é igual a C.';
+    }
+  }
+
+  void desafio11() {
+    int numero = 5;
+    int resultado = 0;
+    int contador = 1;
+
+    while (contador <= 10) {
+      //Mudança do resultado das operações."linha abaixo".//
+      resultado = numero * contador;
+      _textoResultado = 'Tabuada do $numero';
+      resultadoFinal += '$resultado, ';
+      contador = contador + 1;
+    }
+  }
+
+  void desafio13() {
+    //inicializa uma lista com 10 numeros inteiros
+    List<int> numberList = [3, 54, 15, 7, 73, 10, 42, 2, 9, 13];
+    //variaveis para contagem de numeros pares e impares
+    int isEven = 0;
+    int isOdd = 0;
+
+    for (int i = 0; i < numberList.length; i++) {
+      if (numberList[i] % 2 == 0) {
+        isEven++;
+      } else {
+        isOdd++;
+      }
+    }
+
+    _textoResultado =
+        "A quantidade de números pares e ímpares da lista $numberList é: ";
+    resultadoFinal = "$isEven são pares e $isOdd são ímpares";
+  }
+
+  void desafio05() {
+    List<int> valores = [11, 11];
+    int soma = valores[0] + valores[1];
+    int mult = valores[0] * valores[1];
+
+    (valores[0] == valores[1])
+        ? (_textoResultado = 'A soma dos valores é:', resultadoFinal = '$soma')
+        : (
+            _textoResultado = 'A Multiplicação dos valores é: ',
+            resultadoFinal = '$mult'
+          );
+  }
+
+  void desafio10() {
+    String nome = "Emerson Mendes";
+    int idade = 42; // Exemplo de idade
+
+    if (idade >= 18) {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'maior de idade'
+      );
+    } else {
+      (
+        _textoResultado = 'O nome da pessoa é $nome e ela é',
+        resultadoFinal = 'menor de idade'
+      );
+    }
+  }
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -93,6 +186,24 @@ class _MyHomePageState extends State<MyHomePage> {
       switch (counter) {
         case 4:
           desafio04();
+          break;
+        case 2:
+          desafio2();
+          break;
+        case 11:
+          desafio11();
+          break;
+        case 1:
+          desafio01();
+          break;
+        case 13:
+          desafio13();
+          break;
+        case 5:
+          desafio05();
+          break;
+        case 10:
+          desafio10();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -129,6 +240,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 4,
                     child: Text('Desafio 4'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 2,
+                    child: Text('Desafio 2'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 11,
+                    child: Text('Desafio 11'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 1,
+                    child: Text('Desafio 01'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 13,
+                    child: Text('Desafio 13'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 5,
+                    child: Text('Desafio 05'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 10,
+                    child: Text('Desafio 10'),
                   ),
                 ],
               ),
