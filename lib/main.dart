@@ -546,7 +546,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
                 child: const Text('Mostrar Resultado'),
-              ),
+              ), const SizedBox(
+                  height: 20),
               Visibility(
                 visible: mostrarResultado,
                 child: Column(
@@ -554,15 +555,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     Text(
                       _textoResultado,
                       style: const TextStyle(
-                        fontSize: 28,
-                        color: Colors.blue,
+                        fontSize: 24,
+                        color: Colors.black,
                       ),
                     ),
                     Text(
                       resultadoFinal,
                       style: const TextStyle(
-                        fontSize: 36,
-                        color: Colors.red,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
                       ),
                     ),
                   ],
