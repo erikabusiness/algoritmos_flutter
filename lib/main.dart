@@ -54,15 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
   String resultadoFinal = "";
   bool mostrarResultado = false;
 
-  void desafio12() {
-    List<int> listaInicial = [2, 4, 8];
-    List<int> listaFinal = [];
-
-    for(int i = 0; i < listaInicial.length; i++) {
-      int numeroQuadrado = listaInicial[i] * listaInicial[i];
-      listaFinal.add(numeroQuadrado);
-    }
-
   void desafio01() {
     int a = 30;
     int b = 15;
@@ -90,6 +81,18 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       resultadoFinal = 'A soma é igual a C.';
     }
+  }
+    
+   void desafio03() {
+    int numeroInicial = 7;
+    int resultado = 1;
+
+    for(int i = 1; i <= numeroInicial; i++) {
+      resultado *= i;
+    }
+
+    _textoResultado = "o fatorial do numero $numeroInicial é: ";
+    resultadoFinal = "$resultado";
   }
 
   void desafio04() {
@@ -208,6 +211,16 @@ class _MyHomePageState extends State<MyHomePage> {
       contador = contador + 1;
     }
   }
+  
+  
+  void desafio12() {
+    List<int> listaInicial = [2, 4, 8];
+    List<int> listaFinal = [];
+
+    for(int i = 0; i < listaInicial.length; i++) {
+      int numeroQuadrado = listaInicial[i] * listaInicial[i];
+      listaFinal.add(numeroQuadrado);
+  }
 
   void desafio13() {
     //inicializa uma lista com 10 numeros inteiros
@@ -276,12 +289,16 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       counter = valor;
       mostrarResultado = false;
+        
       switch (counter)
         case 1:
           desafio01();
           break;
         case 2:
           desafio2();
+          break;
+        case 3:
+          desafio03();
           break;
         case 4:
           desafio04();
@@ -353,6 +370,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: 2,
                     child: Text('Desafio 2'),
                   ),
+                  DropdownMenuItem<int>(
+                    value: 3,
+                    child: Text('Desafio 3'),
                   DropdownMenuItem<int>(
                     value: 4,
                     child: Text('Desafio 4'),
