@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,6 +54,16 @@ class _MyHomePageState extends State<MyHomePage> {
   String _textoResultado = "";
   String resultadoFinal = "";
   bool mostrarResultado = false;
+
+  void desafio14() {
+   
+    List<int> numeros = [20, 1, 23, 162, 24, 1, 90, 32, 11, 8];
+    int menor = numeros.reduce(min);
+    int maior = numeros.reduce(max);
+    _textoResultado =
+        "O menor e o maior valor da lista respectivamente são: ";
+    resultadoFinal = "$menor e $maior.";
+  }
 
   void desafio01() {
     int a = 30;
@@ -140,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _desafio7() {
+  void desafio7() {
     const double salarioMinimo = 1412.00;
     double salarioUsuario = 4000.00;
     double contagemSalarios = salarioUsuario / salarioMinimo;
@@ -243,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
     resultadoFinal = "$isEven são pares e $isOdd são ímpares";
   }
 
-  void _desafio16() {
+  void desafio16() {
     String removerCaracteresEspeciais(String palavraLimpa) {
       return palavraLimpa
           .replaceAll(RegExp(r'[áàâãä]'), 'a')
@@ -297,6 +308,9 @@ class _MyHomePageState extends State<MyHomePage> {
       mostrarResultado = false;
 
       switch (counter) {
+        case 14:
+          desafio14();
+          break;
         case 1:
           desafio01();
           break;
@@ -313,7 +327,7 @@ class _MyHomePageState extends State<MyHomePage> {
           desafio05();
           break;
         case 7:
-          _desafio7();
+          desafio7();
           break;
         case 9:
           desafio9();
@@ -331,7 +345,7 @@ class _MyHomePageState extends State<MyHomePage> {
           desafio13();
           break;
         case 16:
-          _desafio16();
+          desafio16();
           break;
         case 18:
           desafio18();
@@ -406,11 +420,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   DropdownMenuItem<int>(
                     value: 12,
-                    child: Text('desafio 12'),
+                    child: Text('Desafio 12'),
                   ),
                   DropdownMenuItem<int>(
                     value: 13,
                     child: Text('Desafio 13'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 14,
+                    child: Text('Desafio 14'),
                   ),
                   DropdownMenuItem<int>(
                     value: 16,
