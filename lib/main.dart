@@ -347,6 +347,7 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 6:
           desafio06();
+          break;
         case 7:
           desafio7();
           break;
