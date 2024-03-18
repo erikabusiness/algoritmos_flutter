@@ -150,7 +150,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
   void _desafioSelecionado(int valor) {
-
     setState(() {
       counter = valor;
       mostrarResultado = false;
