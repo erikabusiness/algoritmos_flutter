@@ -247,6 +247,22 @@ class _MyHomePageState extends State<MyHomePage> {
         : 'Não é um palíndromo';
   }
 
+  void desafio18() {
+    String palavra = "eu";
+    String frase = "Eu posso posso eu eu tudo o mais que eu quiser Eu";
+
+    String palavraMinusc = palavra.toLowerCase();
+    String fraseMinusc = frase.toLowerCase();
+
+    List<String> palavrasDaFrase = fraseMinusc.split(' ');
+
+    int contagem = palavrasDaFrase.where((p) => p == palavraMinusc).length;
+
+    _textoResultado = "A palavra $palavra aparece na frase $frase: ";
+
+    resultadoFinal = "Resultado: $contagem";
+  }
+
   void _desafioSelecionado(int valor) {
     setState(() {
       counter = valor;
@@ -281,6 +297,9 @@ class _MyHomePageState extends State<MyHomePage> {
           break;
         case 16:
           _desafio16();
+          break;
+        case 18:
+          desafio18();
           break;
         default:
           _textoResultado = "Nenhum desafio selecionado.";
@@ -353,6 +372,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   DropdownMenuItem<int>(
                     value: 16,
                     child: Text('Desafio 16'),
+                  ),
+                  DropdownMenuItem<int>(
+                    value: 18,
+                    child: Text('Desafio 18'),
                   ),
                 ],
               ),
