@@ -4,9 +4,9 @@ Este repositório é o resultado do esforço colaborativo dos integrantes do squ
 
 ## Screenshots
 <p align="center">
-<img src="assets/screenshots/screenshot_1.png" width="20%">
-<img src="assets/screenshots/screenshot_2.png" width="20%">
-<img src="assets/screenshots/screenshot_3.png" width="20%">
+<img src="assets/screenshots/screenshot_1.png" width="30%">
+<img src="assets/screenshots/screenshot_2.png" width="30%">
+<img src="assets/screenshots/screenshot_3.png" width="30%">
 </p>
 
 ## Objetivo
